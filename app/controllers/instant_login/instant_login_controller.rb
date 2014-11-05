@@ -9,7 +9,7 @@ module InstantLogin
         UserMailer.token(user).deliver
         redirect_to '/', notice: 'Login email sent'
       else
-        redirect_to '/', notice: 'No user found'
+        redirect_to '/', notice: 'User not found'
       end
     end
 
