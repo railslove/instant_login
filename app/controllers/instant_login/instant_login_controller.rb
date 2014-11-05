@@ -15,11 +15,11 @@ module InstantLogin
 
     def login
       user = InstantLogin::User.authenticate_with_instant_login_token(params[:token])
-      if user
-        session[:user_id] = user.id
-        redirect_to '/', notice: 'Logged in'
+      if user.present?
+        session[InstantLogin.config.session_key] = user.id
+        redirect_to InstantLogin.config.success_path, notice: 'Logged in'
       else
-        redirect_to '/', notice: 'Login failed'
+        redirect_to InstantLogin.config.failure_path, alert: 'Login failed'
       end
     end
   end
