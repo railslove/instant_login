@@ -3,7 +3,7 @@ require_dependency "instant_login/application_controller"
 module InstantLogin
   class InstantLoginController < ApplicationController
     def generate_token
-      user = User.find_by(email: params[:email])
+      user = InstantLogin::User.find_by(email: params[:email])
       if user
         user.generate_instant_login_token
         UserMailer.token(user).deliver
@@ -14,7 +14,7 @@ module InstantLogin
     end
 
     def login
-      user = User.authenticate_with_instant_login_token(params[:token])
+      user = InstantLogin::User.authenticate_with_instant_login_token(params[:token])
       if user
         session[:user_id] = user.id
         redirect_to '/', notice: 'Logged in'
