@@ -1,3 +1,4 @@
 InstantLogin::Engine.routes.draw do
-  resource :instant_login, only: [:create, :update], controller: 'instant_login'
+  get '/:token' => 'instant_login#login', as: 'login'
+  post '/' => 'instant_login#generate_token', as: 'token_generation'
 end
