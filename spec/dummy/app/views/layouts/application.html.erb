@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<%- if flash.present? %>
+  <%= debug(flash)%>
+<%- end %>
+
 <%= yield %>
 
 </body>
