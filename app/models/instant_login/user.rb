@@ -1,5 +1,5 @@
 class InstantLogin::User < ActiveRecord::Base
-  self.table_name = 'users'
+  self.table_name = InstantLogin.config.user_table
 
   scope :valid_tokens, -> { where('instant_login_token_created_at >= ?', 15.minutes.ago) }
 
