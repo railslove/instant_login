@@ -7,26 +7,20 @@ module InstantLogin
       if user
         user.generate_instant_login_token
         UserMailer.token(user).deliver
-        redirect_to '/', notice: 'LoginEmail sent'
+        redirect_to '/', notice: 'Login email sent'
       else
-        redirect_to '/', notice: 'No User found'
+        redirect_to '/', notice: 'No user found'
       end
     end
 
     def login
       user = User.find_by_instant_login_token(params[:token])
       if user
-        login_user(user)
+        session[:user_id] = user.id
         redirect_to '/', notice: 'Logged in'
       else
-        redirect_to '/', notice: 'Logged failed'
+        redirect_to '/', notice: 'Login failed'
       end
     end
-
-    private
-
-      def login_user(user)
-        session[:user_id] = user.id
-      end
   end
 end
