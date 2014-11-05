@@ -1,0 +1,13 @@
+.flash {
+  padding: 10px;
+  background-color: #eee;
+  margin-bottom: 10px;
+}
+
+.flash-notice {
+  color: green;
+}
+
+.flash-alert {
+  color: red;
+}

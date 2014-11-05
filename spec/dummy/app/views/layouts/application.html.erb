@@ -7,12 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%- if flash.present? %>
-  <%= debug(flash)%>
-<%- end %>
-
-<%= yield %>
-
+  <h1>InstantLogin Demo App</h1>
+  <%= flash.map { |type, message| content_tag(:div, message, class: "flash flash-#{type}") }.join.html_safe %>
+  <%= yield %>
 </body>
 </html>

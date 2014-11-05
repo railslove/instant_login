@@ -1,4 +1,11 @@
 <%= form_tag '/instant_login' do %>
-  <%= text_field_tag :email, 'test@test.org' %>
-  <%= submit_tag 'Instant login' %>
-<% end%>
+  <p>
+    <%= label_tag :email, 'Email' %>
+    <%= text_field_tag :email, nil, placeholder: 'test@test.org' %>
+  </p>
+  <p>
+    <small>Send a login link to my email address:</small>
+    <br>
+    <%= submit_tag 'Instant login' %>
+  </p>
+<% end %>
