@@ -14,7 +14,7 @@ module InstantLogin
     end
 
     def login
-      user = User.find_by_instant_login_token(params[:token])
+      user = User.authenticate_with_instant_login_token(params[:token])
       if user
         session[:user_id] = user.id
         redirect_to '/', notice: 'Logged in'
