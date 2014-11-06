@@ -1,12 +1,10 @@
-require_dependency "instant_login/application_controller"
+require_dependency 'instant_login/application_controller'
 
 module InstantLogin
   class InstantLoginController < ApplicationController
     def generate_token
-      user = InstantLogin::User.find_by(email: params[:email])
-      if user
-        user.generate_instant_login_token
-        UserMailer.token(user).deliver
+      if user = InstantLogin::User.find_by(email: params[:email])
+        user.generate_and_deliver_token
         redirect_to '/', notice: 'Login email sent'
       else
         redirect_to '/', alert: 'User not found'
@@ -14,8 +12,7 @@ module InstantLogin
     end
 
     def login
-      user = InstantLogin::User.authenticate_with_instant_login_token(params[:token])
-      if user.present?
+      if user = InstantLogin::User.authenticate_with_instant_login_token(params[:token])
         session[InstantLogin.config.session_key] = user.id
         redirect_to InstantLogin.config.success_path, notice: 'Logged in'
       else
