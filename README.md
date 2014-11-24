@@ -3,7 +3,7 @@ InstantLogin
 
 ![Travis Status](https://travis-ci.org/railslove/instant_login.svg)
 
-InstantLogin is a quick implementation of an UX pattern to ease the login process for mobile users:
+InstantLogin is a quick implementation of a UX pattern to ease the login process for mobile users:
 
 1. User enters his/her email
 2. User receives a one-time login link via email
