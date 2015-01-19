@@ -1,4 +1,4 @@
-require_dependency "instant_login/application_controller"
+require_dependency 'instant_login/application_controller'
 
 module InstantLogin
   class InstantLoginController < ApplicationController

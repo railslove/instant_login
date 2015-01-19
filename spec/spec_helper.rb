@@ -14,6 +14,10 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
+
+
 RSpec.configure do |config|
 
   config.backtrace_exclusion_patterns << /gems/
