@@ -11,7 +11,7 @@ module InstantLogin
   config_accessor(:failure_path) { '/' }
 
   # By default we store the signed in user id in this session key
-  config_accessor(:session_key) { 'user_id' }
+  config_accessor(:session_key) { 'current_user_id' }
 
   # Convenience method to reset configuration
   def self.reset_configuration!
@@ -19,6 +19,6 @@ module InstantLogin
     config.user_mailer = nil
     config.success_path = '/'
     config.failure_path = '/'
-    config.session_key = 'user_id'
+    config.session_key = 'current_user_id'
   end
 end
