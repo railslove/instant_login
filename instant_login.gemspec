@@ -7,11 +7,11 @@ require "instant_login/version"
 Gem::Specification.new do |s|
   s.name        = "instant_login"
   s.version     = InstantLogin::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of InstantLogin."
-  s.description = "TODO: Description of InstantLogin."
+  s.authors     = ["Stephan Pavlovic", "Max Schulz"]
+  s.email       = ["stephan@railslove.com", "max@railslove.com"]
+  s.homepage    = "https://railslove.com/instant_login"
+  s.summary     = "Login by e-mail. bye bye passwords"
+  s.description = "Instant Login is a Rails engine that provides an login with e-mail functionality to your app. It allows you to sned one-time login tokens to your users."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
