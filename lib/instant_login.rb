@@ -1,4 +1,5 @@
 require "instant_login/engine"
+require "instant_login/adapters/active_record"
 
 module InstantLogin
   include ActiveSupport::Configurable

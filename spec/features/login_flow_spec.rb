@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'User signs in via instant login link', type: :feature  do
-  let(:user) { User.create(email: 'test@example.org', password: 'secret') }
+  let(:user) { User.create!(email: 'test@example.org', password: 'secret') }
 
   scenario 'User enters an invalid email' do
     visit '/'

@@ -12,7 +12,11 @@ RSpec.feature 'Custom user signs in via instant login link', type: :feature  do
     begin
       example.run
     ensure
-      InstantLogin.reset_configuration!
+      InstantLogin.configure do |config|
+        config.success_path = '/'
+        config.failure_path = '/'
+      end
+
     end
   end
 
