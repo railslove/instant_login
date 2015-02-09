@@ -17,7 +17,7 @@ module InstantLogin
       end
 
       def copy_migration_files
-        migration_template "migration.rb", "db/migrate/instant_login.rb" if options["migration"]
+        migration_template "migration.rb", "db/migrate/instant_login_migration.rb" if options["migration"]
       end
 
       def self.next_migration_number(dirname)
