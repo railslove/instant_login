@@ -6,7 +6,14 @@ module InstantLogin
       user = InstantLogin.config.user_class.find_by(email: params[:email])
       if user
         user.generate_instant_login_token
-        InstantLogin.config.mailer_class.token(user).deliver
+        mail = InstantLogin.config.mailer_class.token(user)
+
+        if mail.respond_to?(:deliver_now)
+          mail.deliver_now
+        else
+          mail.deliver
+        end
+
         redirect_to '/', notice: 'Login email sent'
       else
         redirect_to '/', alert: 'User not found'
